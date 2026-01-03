@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText } from 'lucide-react';
+import { Menu, X, FileText, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { content } from '../data/content';
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
     const { profile } = content;
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -55,6 +55,14 @@ const Navbar = () => {
                     >
                         <FileText size={16} /> Resume
                     </a>
+
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all text-muted-foreground hover:text-primary"
+                        aria-label="Toggle theme"
+                    >
+                        {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                    </button>
                 </div>
 
                 {/* Mobile Menu Button */}

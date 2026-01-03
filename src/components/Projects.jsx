@@ -20,9 +20,9 @@ const Projects = () => {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
                     <div>
                         <span className="text-secondary font-mono mb-2 block">03. Portfolio</span>
-                        <h2 className="text-4xl font-bold">Featured Projects</h2>
+                        <h2 className="text-4xl font-bold text-foreground">Featured Projects</h2>
                     </div>
-                    <a href="#" className="hidden md:flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors">
+                    <a href="#" className="hidden md:flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                         View all projects <ArrowRight size={16} />
                     </a>
                 </div>
@@ -44,11 +44,11 @@ const Projects = () => {
                             >
                                 {/* Front Face */}
                                 <div
-                                    className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-card border border-white/5 shadow-xl hover:border-primary/50 transition-colors cursor-pointer"
+                                    className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-card border border-border shadow-xl hover:border-primary/50 transition-colors cursor-pointer"
                                     onClick={() => handleFlip(project.id)}
                                 >
                                     <div className="absolute inset-0">
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10" />
                                         <img
                                             src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"}
                                             alt={project.title}
@@ -56,26 +56,40 @@ const Projects = () => {
                                         />
                                     </div>
 
+                                    {/* Visit Button (Front) */}
+                                    {project.link && (
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="absolute top-4 left-4 z-30 bg-background/50 backdrop-blur-md p-2 rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-background/80 transition-all shadow-lg hover:scale-110"
+                                            onClick={(e) => e.stopPropagation()}
+                                            title="Visit Project"
+                                        >
+                                            <ExternalLink size={20} />
+                                        </a>
+                                    )}
+
                                     {/* Click Hint */}
-                                    <div className="absolute top-4 right-4 z-30 bg-black/50 backdrop-blur-md p-2 rounded-full border border-white/10 text-muted-foreground group-hover:text-white transition-colors">
+                                    <div className="absolute top-4 right-4 z-30 bg-background/50 backdrop-blur-md p-2 rounded-full border border-border text-muted-foreground group-hover:text-foreground transition-colors">
                                         <Info size={20} />
                                     </div>
 
                                     <div className="relative z-20 h-full flex flex-col justify-end p-8">
                                         <div className="flex flex-wrap gap-2 mb-4">
                                             {project.tech.slice(0, 4).map((t, i) => (
-                                                <span key={i} className="text-xs px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10">
+                                                <span key={i} className="text-xs px-3 py-1 rounded-full bg-background/40 backdrop-blur-md text-foreground border border-border">
                                                     {t}
                                                 </span>
                                             ))}
                                             {project.tech.length > 4 && (
-                                                <span className="text-xs px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10">
+                                                <span className="text-xs px-3 py-1 rounded-full bg-background/40 backdrop-blur-md text-foreground border border-border">
                                                     +{project.tech.length - 4}
                                                 </span>
                                             )}
                                         </div>
-                                        <h3 className="text-2xl font-bold mb-2 text-white">{project.title}</h3>
-                                        <p className="text-gray-300 mb-2 line-clamp-2">{project.description}</p>
+                                        <h3 className="text-2xl font-bold mb-2 text-foreground">{project.title}</h3>
+                                        <p className="text-muted-foreground mb-2 line-clamp-2">{project.description}</p>
                                         <p className="text-xs text-secondary font-mono mt-2 flex items-center gap-1">
                                             Tap card for details <ArrowRight size={12} />
                                         </p>
@@ -83,10 +97,10 @@ const Projects = () => {
                                 </div>
 
                                 {/* Back Face */}
-                                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-white/10 p-8 flex flex-col shadow-xl cursor-default">
+                                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-card border border-border p-8 flex flex-col shadow-xl cursor-default">
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-2xl font-bold text-primary">{project.title}</h3>
-                                        <button className="text-muted-foreground hover:text-white" onClick={() => handleFlip(project.id)}>
+                                        <button className="text-muted-foreground hover:text-foreground" onClick={() => handleFlip(project.id)}>
                                             Close
                                         </button>
                                     </div>
@@ -98,7 +112,7 @@ const Projects = () => {
                                     >
                                         <ul className="space-y-3">
                                             {project.details && project.details.map((detail, i) => (
-                                                <li key={i} className="text-sm text-gray-300 flex gap-2">
+                                                <li key={i} className="text-sm text-muted-foreground flex gap-2">
                                                     <span className="text-primary mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                                                     <span className="leading-relaxed">{detail}</span>
                                                 </li>
@@ -106,14 +120,14 @@ const Projects = () => {
                                         </ul>
                                     </div>
 
-                                    <div className="mt-6 pt-6 border-t border-white/5 flex gap-4">
+                                    <div className="mt-6 pt-6 border-t border-border flex gap-4">
                                         {project.github && (
-                                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors text-sm font-medium">
+                                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 text-foreground transition-colors text-sm font-medium">
                                                 <Github size={18} /> GitHub
                                             </a>
                                         )}
                                         {project.link && (
-                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white transition-colors text-sm font-medium">
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-colors text-sm font-medium">
                                                 <ExternalLink size={18} /> Visit Project
                                             </a>
                                         )}
@@ -127,7 +141,7 @@ const Projects = () => {
 
 
                 <div className="mt-8 text-center md:hidden">
-                    <a href="#" className="inline-flex items-center gap-2 text-sm text-secondary hover:text-white transition-colors">
+                    <a href="#" className="inline-flex items-center gap-2 text-sm text-secondary hover:text-foreground transition-colors">
                         View all projects <ArrowRight size={16} />
                     </a>
                 </div>

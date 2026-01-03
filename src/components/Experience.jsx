@@ -35,13 +35,13 @@ const Experience = () => {
 
                             {/* Content Card */}
                             <div className="ml-12 md:ml-0 md:w-1/2 md:px-8">
-                                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-colors shadow-lg backdrop-blur-sm group">
+                                <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors shadow-lg backdrop-blur-sm group">
                                     <div className="flex flex-wrap justify-between items-start gap-2 mb-4">
                                         <div>
-                                            <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{item.role}</h3>
+                                            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">{item.role}</h3>
                                             <p className="text-primary/80 font-medium">{item.company}</p>
                                         </div>
-                                        <div className="flex items-center gap-1.5 text-xs font-mono text-muted-foreground bg-white/5 px-2 py-1 rounded">
+                                        <div className="flex items-center gap-1.5 text-xs font-mono text-muted-foreground bg-muted px-2 py-1 rounded">
                                             <Calendar size={12} />
                                             {item.period}
                                         </div>

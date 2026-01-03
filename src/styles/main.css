@@ -39,6 +39,36 @@
 
         --radius: 0.75rem;
     }
+
+    .light {
+        --background: 210 40% 98%;
+        --foreground: 222.2 47.4% 11.2%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 47.4% 11.2%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 47.4% 11.2%;
+
+        --primary: 263 70% 50%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 199 89% 48%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --accent: 326 100% 74%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 214 32% 91%;
+        --input: 214 32% 91%;
+        --ring: 263 70% 50%;
+    }
 }
 
 @layer base {
@@ -55,7 +85,7 @@
 
 /* Custom Utilities */
 .glass {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+    @apply backdrop-blur-xl bg-background/60 border border-border/50;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -94,17 +124,17 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: hsl(var(--foreground) / 0.05);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+    background: hsl(var(--foreground) / 0.2);
     border-radius: 3px;
     transition: background 0.3s ease;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: hsl(var(--foreground) / 0.4);
 }
 
 /* Ensure scrollbar is easier to hit */
