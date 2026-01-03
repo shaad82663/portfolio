@@ -44,7 +44,7 @@ const Projects = () => {
                             >
                                 {/* Front Face */}
                                 <div
-                                    className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-card border border-border shadow-xl hover:border-primary/50 transition-colors cursor-pointer"
+                                    className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-card border border-border shadow-xl hover:border-primary/50 transition-colors cursor-pointer ${flippedId === project.id ? 'pointer-events-none -z-10' : 'z-10'}`}
                                     onClick={() => handleFlip(project.id)}
                                 >
                                     <div className="absolute inset-0">
@@ -97,7 +97,7 @@ const Projects = () => {
                                 </div>
 
                                 {/* Back Face */}
-                                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-card border border-border p-8 flex flex-col shadow-xl cursor-default">
+                                <div className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-card border border-border p-8 flex flex-col shadow-xl cursor-default ${flippedId === project.id ? 'z-10 pointer-events-auto' : '-z-10 pointer-events-none'}`}>
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-2xl font-bold text-primary">{project.title}</h3>
                                         <button className="text-muted-foreground hover:text-foreground" onClick={() => handleFlip(project.id)}>
