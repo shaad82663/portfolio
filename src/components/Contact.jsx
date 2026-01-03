@@ -1,6 +1,6 @@
 import React from 'react';
 import { content } from '../data/content';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send, Phone } from 'lucide-react';
 
 const Contact = () => {
     const { contact } = content;
@@ -24,6 +24,12 @@ const Contact = () => {
                                     <Mail size={20} />
                                 </div>
                                 <span>{contact.email}</span>
+                            </div>
+                            <div className="flex items-center gap-4 text-gray-300">
+                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <Phone size={20} />
+                                </div>
+                                <span>{contact.phone}</span>
                             </div>
                             <div className="flex items-center gap-4 text-gray-300">
                                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">

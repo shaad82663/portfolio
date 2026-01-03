@@ -1,3 +1,5 @@
+import tailwindAnimate from "tailwindcss-animate";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -31,7 +33,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-        },
+          },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -81,5 +83,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimate],
 }

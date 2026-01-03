@@ -47,7 +47,7 @@ const Projects = () => {
                             {/* Content */}
                             <div className="relative z-20 h-full flex flex-col justify-end p-8">
                                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <div className="flex gap-2 mb-4">
+                                    <div className="flex flex-wrap gap-2 mb-4">
                                         {project.tech.map((t, i) => (
                                             <span key={i} className="text-xs px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10">
                                                 {t}
@@ -59,8 +59,16 @@ const Projects = () => {
                                     <p className="text-gray-300 mb-6 line-clamp-2">{project.description}</p>
 
                                     <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <a href={project.link} className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"><Github size={20} /></a>
-                                        <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"><ExternalLink size={20} /></a>
+                                        {project.github && (
+                                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
+                                                <Github size={20} />
+                                            </a>
+                                        )}
+                                        {project.link && (
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
+                                                <ExternalLink size={20} />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
