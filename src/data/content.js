@@ -36,6 +36,14 @@ export const content = {
   ],
   projects: [
     {
+      id: 0,
+      title: "ParkOne",
+      description: "A leading Danish parking app providing a seamless experience across 93% of paid parking spots in Denmark with transparent pricing.",
+      tech: ["Node.js", "TypeScript", "PostgreSQL"],
+      link: "https://parkone.dk/",
+      image: "/assets/projects/parkone.png"
+    },
+    {
       id: 1,
       title: "Nebula Stream",
       description: "A high-throughput distributed event streaming platform designed for real-time analytics.",

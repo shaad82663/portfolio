@@ -69,12 +69,14 @@ const Hero = () => {
                                 <div className="w-3 h-3 rounded-full bg-green-500" />
                             </div>
                             <div className="space-y-2 font-mono text-sm text-gray-300 opacity-60">
-                                <p><span className="text-purple-400">class</span> <span className="text-yellow-400">BackendEngineer</span>:</p>
-                                <p className="pl-4"><span className="text-purple-400">def</span> <span className="text-blue-400">init</span>(self):</p>
-                                <p className="pl-8">self.skills = [<span className="text-green-400">'Python'</span>, <span className="text-green-400">'Rust'</span>]</p>
-                                <p className="pl-8">self.passion = <span className="text-green-400">'Scalability'</span></p>
-                                <p className="pl-4"><span className="text-purple-400">def</span> <span className="text-blue-400">deploy</span>(self):</p>
-                                <p className="pl-8"><span className="text-purple-400">return</span> <span className="text-green-400">"Production Ready"</span></p>
+                                <p><span className="text-purple-400">class</span> <span className="text-yellow-400">BackendEngineer</span> {'{'}</p>
+                                <p className="pl-4">skills: <span className="text-blue-400">string[]</span> = [<span className="text-green-400">'Node.js'</span>, <span className="text-green-400">'TS'</span>];</p>
+                                <p className="pl-4">passion: <span className="text-blue-400">string</span> = <span className="text-green-400">'Scalability'</span>;</p>
+                                <br />
+                                <p className="pl-4"><span className="text-blue-400">deploy</span>(): <span className="text-blue-400">string</span> {'{'}</p>
+                                <p className="pl-8"><span className="text-purple-400">return</span> <span className="text-green-400">"Production Ready"</span>;</p>
+                                <p className="pl-4">{'}'}</p>
+                                <p>{'}'}</p>
                             </div>
                         </div>
 
