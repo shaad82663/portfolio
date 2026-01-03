@@ -4,7 +4,7 @@ export const content = {
     title: "Backend Software Engineer",
     tagline: "Architecting Scalable Backend Systems & Cloud Solutions",
     about: "Backend Software Engineer with 2.5+ years of experience building scalable backend systems using Node.js, Express.js, AWS, and modern API architectures. Skilled in designing RESTful and GraphQL services, microservices, and event-driven workflows with a focus on clean, maintainable code. Passionate about solving real engineering challenges and improving backend performance and reliability.",
-    avatar: "https://images.unsplash.com/photo-1556157382-97eda2d622ca?fit=crop&w=600&h=600",
+    avatar: "/assets/profile.png",
     social: {
       github: "https://github.com/shaad82663",
       linkedin: "https://www.linkedin.com/in/shadab-mohd/",

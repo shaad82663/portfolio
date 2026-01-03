@@ -87,9 +87,9 @@ const Hero = () => {
                         <motion.div
                             animate={{ y: [0, -20, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -bottom-10 -left-10 bg-card p-4 rounded-xl border border-border shadow-2xl flex items-center gap-4 w-64"
+                            className="absolute -bottom-10 -left-10 bg-card p-4 rounded-xl border border-border shadow-2xl flex items-center gap-4 w-72"
                         >
-                            <img src={profile.avatar} alt="Profile" className="w-12 h-12 rounded-full object-cover" />
+                            <img src={profile.avatar} alt="Profile" className="w-16 h-16 rounded-full object-cover" />
                             <div>
                                 <h3 className="font-bold text-foreground text-sm">{profile.name}</h3>
                                 <p className="text-xs text-muted-foreground">{profile.title}</p>
