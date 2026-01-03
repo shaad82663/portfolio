@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { content } from '../data/content';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Folder } from 'lucide-react';
+import { Github, ExternalLink, Folder, Info } from 'lucide-react';
 
 const Projects = () => {
     const { projects } = content;
+    const [flippedId, setFlippedId] = useState(null);
+
+    const handleFlip = (id) => {
+        setFlippedId(flippedId === id ? null : id);
+    };
 
     return (
         <section id="projects" className="py-24 bg-background relative">
@@ -23,58 +28,103 @@ const Projects = () => {
                 </div>
 
                 {/* Bento Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[400px]">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[500px]">
                     {projects.map((project, index) => (
-                        <motion.div
+                        <div
                             key={project.id}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className={`group relative rounded-2xl overflow-hidden bg-card border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl ${index === 0 ? 'lg:col-span-2' : ''
-                                }`}
+                            className={`group perspective-1000 ${index === 0 ? 'lg:col-span-2' : ''}`}
                         >
-                            {/* Image / Gradient Background */}
-                            <div className="absolute inset-0">
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
-                                <img
-                                    src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                />
-                            </div>
-
-                            {/* Content */}
-                            <div className="relative z-20 h-full flex flex-col justify-end p-8">
-                                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        {project.tech.map((t, i) => (
-                                            <span key={i} className="text-xs px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10">
-                                                {t}
-                                            </span>
-                                        ))}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                animate={{ rotateY: flippedId === project.id ? 180 : 0 }}
+                                className="relative w-full h-full text-left transform-style-3d"
+                            >
+                                {/* Front Face */}
+                                <div
+                                    className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-card border border-white/5 shadow-xl hover:border-primary/50 transition-colors cursor-pointer"
+                                    onClick={() => handleFlip(project.id)}
+                                >
+                                    <div className="absolute inset-0">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                                        <img
+                                            src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover transform scale-100 transition-transform duration-700"
+                                        />
                                     </div>
 
-                                    <h3 className="text-2xl font-bold mb-2 text-white">{project.title}</h3>
-                                    <p className="text-gray-300 mb-6 line-clamp-2">{project.description}</p>
+                                    {/* Click Hint */}
+                                    <div className="absolute top-4 right-4 z-30 bg-black/50 backdrop-blur-md p-2 rounded-full border border-white/10 text-muted-foreground group-hover:text-white transition-colors">
+                                        <Info size={20} />
+                                    </div>
 
-                                    <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="relative z-20 h-full flex flex-col justify-end p-8">
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {project.tech.slice(0, 4).map((t, i) => (
+                                                <span key={i} className="text-xs px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                            {project.tech.length > 4 && (
+                                                <span className="text-xs px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10">
+                                                    +{project.tech.length - 4}
+                                                </span>
+                                            )}
+                                        </div>
+                                        <h3 className="text-2xl font-bold mb-2 text-white">{project.title}</h3>
+                                        <p className="text-gray-300 mb-2 line-clamp-2">{project.description}</p>
+                                        <p className="text-xs text-secondary font-mono mt-2 flex items-center gap-1">
+                                            Tap card for details <ArrowRight size={12} />
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Back Face */}
+                                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden bg-[#0A0A0A] border border-white/10 p-8 flex flex-col shadow-xl cursor-default">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h3 className="text-2xl font-bold text-primary">{project.title}</h3>
+                                        <button className="text-muted-foreground hover:text-white" onClick={() => handleFlip(project.id)}>
+                                            Close
+                                        </button>
+                                    </div>
+
+                                    <div
+                                        className="flex-grow overflow-y-auto pr-2 custom-scrollbar"
+                                        onTouchStart={(e) => e.stopPropagation()}
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <ul className="space-y-3">
+                                            {project.details && project.details.map((detail, i) => (
+                                                <li key={i} className="text-sm text-gray-300 flex gap-2">
+                                                    <span className="text-primary mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                                                    <span className="leading-relaxed">{detail}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div className="mt-6 pt-6 border-t border-white/5 flex gap-4">
                                         {project.github && (
-                                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
-                                                <Github size={20} />
+                                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors text-sm font-medium">
+                                                <Github size={18} /> GitHub
                                             </a>
                                         )}
                                         {project.link && (
-                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
-                                                <ExternalLink size={20} />
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white transition-colors text-sm font-medium">
+                                                <ExternalLink size={18} /> Visit Project
                                             </a>
                                         )}
                                     </div>
                                 </div>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </div>
                     ))}
                 </div>
+
+
 
                 <div className="mt-8 text-center md:hidden">
                     <a href="#" className="inline-flex items-center gap-2 text-sm text-secondary hover:text-white transition-colors">

@@ -8,7 +8,8 @@ export const content = {
     social: {
       github: "https://github.com/shaad82663",
       linkedin: "https://www.linkedin.com/in/shadab-mohd/",
-      email: "mailto:shaad82665@gmail.com"
+      email: "mailto:shaad82665@gmail.com",
+      resume: "https://drive.google.com/file/d/1a1tqAyzkQ8226_r6fJJODuLMB8AmByba/view?usp=sharing"
     }
   },
   contact: {
@@ -34,7 +35,13 @@ export const content = {
       tech: ["Node.js", "AWS Lambda", "Redis", "Docker", "MySQL", "JavaScript", "TypeScript"],
       link: "https://trafikalarm.dk/",
       github: null,
-      image: "/assets/projects/trafikalarm.png"
+      image: "/assets/projects/trafikalarm.png",
+      details: [
+        "Engineered Node.js-based AWS Lambda functions with API Gateway for real-time traffic alerts, reducing end-to-end latency by 30%.",
+        "Integrated Redis caching and Dockerized services for scalable geo-queries, improving response times by 70%.",
+        "Refined MySQL data models using TypeORM for optimized streaming and indexing.",
+        "Built secure endpoints using JWT-based authentication and webhook integrations."
+      ]
     },
     {
       id: 1,
@@ -43,7 +50,13 @@ export const content = {
       tech: ["Node.js", "PostgreSQL", "JWT", "REST API", "Docker", "JavaScript", "TypeScript", "Express.js"],
       link: "https://parkone.dk/",
       github: null,
-      image: "/assets/projects/parkone.png"
+      image: "/assets/projects/parkone.png",
+      details: [
+        "Developed a dynamic pricing module using Node.js, Express.js, and PostgreSQL with pgAgent for monitoring, fulfilling 100% of client specifications while minimizing operational costs.",
+        "Implemented secure authentication using JWT tokens, improving access control reliability across all transactions.",
+        "Integrated MobilePay payment gateway through API Gateway and RESTful endpoints, streamlining 70% of user payments and enhancing overall transaction success rates.",
+        "Implemented automated background jobs and schedulers to improve system uptime and scalability."
+      ]
     },
     {
       id: 2,
@@ -52,7 +65,13 @@ export const content = {
       tech: ["NestJS", "MongoDB", "GraphQL", "Firebase", "Kafka", "Docker", "JavaScript", "TypeScript", "Node.js", "AWS"],
       link: "https://driveone.eu/",
       github: null,
-      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?fit=crop&w=800&q=80",
+      details: [
+        "Optimized MongoDB schemas with Mongoose and aggregation pipelines for cursor-based streaming, accelerating data retrieval by 25% and API response times by 30% in high-volume scenarios.",
+        "Deployed cron-based jobs and Kafka message brokers for event-driven data automation using AWS Lambda, eliminating 30% of manual interventions and improving workflow efficiency.",
+        "Built push notification services using Firebase Cloud Messaging (FCM) to deliver timely news alerts, integrated with external GPS APIs.",
+        "Implemented GPS tracking logic with GraphQL queries and microservices architecture in NestJS, increasing traffic prediction accuracy by 40% through refined database modeling."
+      ]
     },
     {
       id: 3,
@@ -61,7 +80,13 @@ export const content = {
       tech: ["LangChain", "LangSmith", "OpenAI", "Ollama", "Node.js", "JavaScript"],
       link: "https://www.linkedin.com/posts/shadab-mohd_langchain-agent-agenticprogramming-activity-7398295216560058368-ZTNl?utm_source=share&utm_medium=member_desktop&rcm=ACoAADEQQ3wBqjoPlMybTl3v4ZWRQFKlwgW-30A",
       github: "https://github.com/shaad82663/BookMe",
-      image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?fit=crop&w=800&q=80",
+      details: [
+        "Designed an autonomous agentic workflow using LangChain to handle end-to-end movie ticket booking.",
+        "Implemented tool calling capabilities for the LLM to interact with external APIs for theater and showtime data.",
+        "Integrated Local LLMs via Ollama for cost-effective development and testing.",
+        "Built a robust state management system to track conversation context and booking progress."
+      ]
     }
   ],
   education: [

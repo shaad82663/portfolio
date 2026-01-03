@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, FileText } from 'lucide-react';
 import { content } from '../data/content';
 
 const Hero = () => {
@@ -43,6 +43,9 @@ const Hero = () => {
                         </a>
                         <a href={profile.social.github} target="_blank" rel="noreferrer" className="px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-medium">
                             GitHub
+                        </a>
+                        <a href={profile.social.resume} target="_blank" rel="noreferrer" className="px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-medium flex items-center gap-2">
+                            <FileText size={18} /> Resume
                         </a>
                     </div>
 
